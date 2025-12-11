@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Concept Compass</title><link rel="stylesheet" href="style.css"></head>
+<body><div class="container"><h1>Concept Compass (Proto)</h1>
+<div class="controls"><input id="wordInput" placeholder="Mot / concept"/><input id="userInput" placeholder="Pseudo (optionnel)"/>
+<div class="sliders"><label>Gauche ↔ Droite <span id="xVal">0.00</span></label><input id="xRange" type="range" min="-1" max="1" step="0.01" value="0"/>
+<label>Prolétaire ↔ Bourgeois <span id="yVal">0.00</span></label><input id="yRange" type="range" min="-1" max="1" step="0.01" value="0"/></div>
+<button id="submitBtn">Envoyer vote</button><div id="msg" class="msg"></div></div>
+<div class="main"><canvas id="compass" width="600" height="600"></canvas>
+<div class="side"><h3>Mots récents</h3><ul id="wordList"></ul><h3>Détails</h3><div id="details">Cliquer sur un mot</div></div></div></div>
+<script src="app.js"></script></body></html>
