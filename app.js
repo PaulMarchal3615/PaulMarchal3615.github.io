@@ -1,7 +1,5 @@
-// ----- Base de données locale (proto) -----
 let db = JSON.parse(localStorage.getItem("conceptDB") || "{}");
 
-// ----- Interface -----
 const conceptInput = document.getElementById("conceptInput");
 const axisXInput = document.getElementById("axisX");
 const axisYInput = document.getElementById("axisY");
@@ -10,7 +8,6 @@ const addButton = document.getElementById("addButton");
 const canvas = document.getElementById("chart");
 const ctx = canvas.getContext("2d");
 
-// ----- Ajouter un vote -----
 addButton.addEventListener("click", () => {
     const name = conceptInput.value.trim();
     const x = parseFloat(axisXInput.value);
@@ -21,35 +18,25 @@ addButton.addEventListener("click", () => {
         return;
     }
 
-    if (!db[name]) {
-        db[name] = { votes: [] };
-    }
-
+    if (!db[name]) db[name] = { votes: [] };
     db[name].votes.push({ x, y });
 
     localStorage.setItem("conceptDB", JSON.stringify(db));
-
     conceptInput.value = "";
 
     drawChart();
 });
 
-// ----- Calculer la moyenne -----
 function average(votes) {
     if (votes.length === 0) return { x: 0, y: 0 };
     let sx = 0, sy = 0;
-    for (let v of votes) {
-        sx += v.x;
-        sy += v.y;
-    }
+    for (let v of votes) { sx += v.x; sy += v.y; }
     return { x: sx / votes.length, y: sy / votes.length };
 }
 
-// ----- Dessiner le diagramme -----
 function drawChart() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Quadrillage léger
     ctx.strokeStyle = "#cccccc";
     ctx.beginPath();
     ctx.moveTo(canvas.width / 2, 0);
@@ -58,10 +45,8 @@ function drawChart() {
     ctx.lineTo(canvas.width, canvas.height / 2);
     ctx.stroke();
 
-    // Dessiner les concepts
     for (let concept in db) {
         const { x, y } = average(db[concept].votes);
-
         const px = canvas.width / 2 + x * 2;
         const py = canvas.height / 2 - y * 2;
 
