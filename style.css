@@ -1,4 +1,15 @@
-body { font-family: sans-serif; padding: 20px; }
-.form { margin-bottom: 20px; display: flex; flex-direction: column; width: 300px; }
-canvas { border: 1px solid #ccc; margin-top:20px; }
-label { margin-top: 10px; }
+:root{--bg:#f6f9fc;--card:#fff;--accent:#1f6feb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;color:#102030}
+.app{display:flex;gap:24px;padding:20px}
+.panel{width:340px;background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(16,32,48,0.06)}
+.panel h2{margin-top:0}
+.panel input[type=text], .panel input[type=range], .panel select{width:100%;padding:8px;margin:6px 0;border-radius:8px;border:1px solid #e6eef8}
+.panel .actions{display:flex;gap:8px;align-items:center;margin-top:8px}
+.panel .checkbox{display:flex;align-items:center;gap:6px}
+.panel .hist{margin-top:14px}
+.panel .voters{max-height:240px;overflow:auto;margin-top:10px;border-top:1px solid #f0f5fb;padding-top:8px}
+.panel ul{padding-left:16px;margin:0}
+.main{flex:1}
+.canvas-wrap{background:linear-gradient(#ffffff,#f4fbff);padding:12px;border-radius:12px;border:1px solid #e6eef8}
+canvas{display:block;max-width:100%}
