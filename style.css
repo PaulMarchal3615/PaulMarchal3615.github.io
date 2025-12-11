@@ -1,3 +1,4 @@
 body { font-family: sans-serif; padding: 20px; }
 .form { margin-bottom: 20px; display: flex; flex-direction: column; width: 300px; }
-canvas { border: 1px solid #ccc; }
+canvas { border: 1px solid #ccc; margin-top:20px; }
+label { margin-top: 10px; }
